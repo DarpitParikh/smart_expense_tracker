@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Expense Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Smart Expense Tracker</h1>
+  </header>
+
+  <main>
+    <section class="login-section">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <button type="button" id="send-otp">Send OTP</button>
+        <input type="text" id="otp" placeholder="Enter OTP" style="display:none;" required>
+        <button type="submit" id="verify-otp" style="display:none;">Verify OTP</button>
+      </form>
+    </section>
+
+    <section class="add-expense" style="display:none;">
+      <h2>Add Expense</h2>
+      <form id="expense-form">
+        <input type="text" id="expense-name" placeholder="Expense Name" required>
+        <input type="number" id="expense-amount" placeholder="Amount" required>
+        <select id="expense-category" required>
+          <option value="" disabled selected>Category</option>
+          <option value="Groceries">Groceries</option>
+          <option value="Utilities">Utilities</option>
+          <option value="Transportation">Transportation</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Other">Other</option>
+        </select>
+        <button type="submit">Add Expense</button>
+      </form>
+    </section>
+
+    <section class="expense-summary" style="display:none;">
+      <h2>Summary</h2>
+      <div id="summary-container">
+        <p>Total Expenses: <span id="total-expenses">0</span> USD</p>
+        <ul id="category-breakdown"></ul>
+      </div>
+    </section>
+
+    <section class="expense-list" style="display:none;">
+      <h2>Expense List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="expense-table-body">
+        </tbody>
+      </table>
+    </section>
+  </main>
