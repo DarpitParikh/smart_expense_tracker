@@ -24,7 +24,6 @@ expiry_time = datetime.now(timezone.utc) + timedelta(minutes=5)  # OTP expires i
 # Elastic Email API endpoint
 SEND_URL = 'https://api.elasticemail.com/v2/email/send'
 
-
 # Set up logging to see any issues
 logging.basicConfig(level=logging.DEBUG)
 
@@ -43,6 +42,8 @@ def send_otp():
         return jsonify({'message': 'Email is required'}), 400
 
     otp = generate_otp(email)  # Generate OTP
+    logging.debug(f"Generated OTP for {email}: {otp}")
+    
     # Prepare the payload for Elastic Email API request
     payload = {
         'from': 'dpwork124@gmail.com',  # Your verified sender email
@@ -55,6 +56,7 @@ def send_otp():
     try:
         # Send the OTP email via Elastic Email API
         response = requests.post(SEND_URL, data=payload)
+        logging.debug(f"Elastic Email API response: {response.text}")
         
         if response.status_code == 200:
             return jsonify({'message': 'OTP sent successfully'}), 200
@@ -63,10 +65,11 @@ def send_otp():
     except requests.exceptions.RequestException as e:
         logging.error(f"Error occurred: {e}")
         return jsonify({'message': 'Failed to send OTP', 'error': str(e)}), 500
+
 @app.route('/')
 def home():
     return "Flask server is running!"
-    
+
 @app.route('/verify-otp', methods=['POST'])
 def verify_otp():
     data = request.json
