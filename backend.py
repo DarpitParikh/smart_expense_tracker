@@ -12,7 +12,8 @@ load_dotenv()
 
 # Initialize Flask app and CORS
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["http://localhost:5002", "https://smart-expense-tracker-dusky.vercel.app"])
+
 
 # In-memory store for OTPs with expiration time
 otp_store = {}
