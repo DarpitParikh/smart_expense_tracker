@@ -58,7 +58,7 @@ python-bidi==0.6.3
 python-dateutil==2.9.0.post0
 python-dotenv==0.19.2
 python-http-client==3.3.7
-pywin32==308
+
 PyYAML==6.0.2
 qrcode==8.0
 reportlab==4.2.5
