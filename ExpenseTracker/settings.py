@@ -75,23 +75,23 @@ WSGI_APPLICATION = 'ExpenseTracker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'smartexpensetracker',        
-        'USER': 'root',
-        'PASSWORD': 'ldrp',    
-        'HOST': 'localhost',                  
-        'PORT': '3306',                     
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'smartexpensetracker',        
+#         'USER': 'root',
+#         'PASSWORD': 'ldrp',    
+#         'HOST': 'localhost',                  
+#         'PORT': '3306',                     
+#     }
+# }
 ALLOWED_HOSTS = ['*']
 
 # Password validation
