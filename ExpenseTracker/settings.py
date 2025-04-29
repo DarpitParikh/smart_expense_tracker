@@ -92,7 +92,7 @@ DATABASES = {
         'PORT': '3306',                     
     }
 }
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
